@@ -1,6 +1,7 @@
 package dosopt.server.eqlserver.domain;
 
 
+import dosopt.server.eqlserver.domain.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "items")
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
