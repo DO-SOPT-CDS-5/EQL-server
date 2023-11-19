@@ -1,4 +1,4 @@
-package dosopt.server.eqlserver.config;
+package dosopt.server.eqlserver.global.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
