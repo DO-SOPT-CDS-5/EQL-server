@@ -25,6 +25,12 @@ dependencies {
 
 	//mysql
 	implementation 'mysql:mysql-connector-java:8.0.28'
+
+	//lombok
+	annotationProcessor 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('bootBuildImage') {
