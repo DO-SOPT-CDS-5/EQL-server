@@ -31,6 +31,4 @@ public class ItemQueryService {
 
         return new ItemsResponse(items);
     }
-
-
 }
