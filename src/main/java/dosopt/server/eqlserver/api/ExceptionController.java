@@ -16,18 +16,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 public class ExceptionController {
 
+    /**
+     * 404 Bad Request
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(IllegalArgumentException.class)
     protected ApiResponse<Object> handleIllegalArgumentException(IllegalArgumentException exception) {
         log.error(exception.getMessage(), exception);
         return ApiResponse.error(HttpStatus.BAD_REQUEST, exception.getMessage());
-    }
-
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(Exception.class)
-    protected ApiResponse<Object> handleException(Exception exception) {
-        log.error(exception.getMessage(), exception);
-        return ApiResponse.error(HttpStatus.INTERNAL_SERVER_ERROR, "서버 내부에서 오류가 발생했습니다.");
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -49,6 +45,16 @@ public class ExceptionController {
     protected ApiResponse<Object> handleHttpRequestMethodNotSupportedException(
             HttpRequestMethodNotSupportedException exception) {
         return ApiResponse.error(HttpStatus.METHOD_NOT_ALLOWED, "Http Method가 잘못되었습니다.");
+    }
+
+    /**
+     * 500 Internal Server Error
+     */
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    protected ApiResponse<Object> handleException(Exception exception) {
+        log.error(exception.getMessage(), exception);
+        return ApiResponse.error(HttpStatus.INTERNAL_SERVER_ERROR, "서버 내부에서 오류가 발생했습니다.");
     }
 
 }
