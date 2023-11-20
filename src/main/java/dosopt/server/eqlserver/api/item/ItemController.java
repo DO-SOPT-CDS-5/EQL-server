@@ -1,6 +1,7 @@
 package dosopt.server.eqlserver.api.item;
 
 import dosopt.server.eqlserver.api.item.dto.response.ItemResponse;
+import dosopt.server.eqlserver.api.item.dto.response.ItemResponses;
 import dosopt.server.eqlserver.common.dto.ApiResponse;
 import dosopt.server.eqlserver.service.item.ItemQueryService;
 import dosopt.server.eqlserver.service.item.ItemService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class ItemController {
+
     private final ItemService itemService;
     private final ItemQueryService itemQueryService;
 
@@ -21,5 +23,11 @@ public class ItemController {
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<ItemResponse> findItemInfo(@PathVariable("itemId") final Long itemId) {
         return ApiResponse.success(HttpStatus.OK, "상품 상세 조회에 성공했습니다.", itemQueryService.findItemById(itemId));
+    }
+
+    @GetMapping("/items")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse<ItemResponses> findItems(){
+        return ApiResponse.success(HttpStatus.OK,"카테고리 상품 조회에 성공했습니다.", itemQueryService.getItems());
     }
 }
