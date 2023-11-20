@@ -1,6 +1,7 @@
 package dosopt.server.eqlserver.service.item;
 
 import dosopt.server.eqlserver.api.item.dto.response.ItemResponse;
+import dosopt.server.eqlserver.api.item.dto.response.ItemResponses;
 import dosopt.server.eqlserver.domain.Item;
 import dosopt.server.eqlserver.global.exception.IllegalArgumentException;
 import dosopt.server.eqlserver.repository.ItemRepository;
@@ -24,11 +25,13 @@ public class ItemQueryService {
         return ItemResponse.fromEntity(item);
     }
 
-    public List<ItemResponse> getItems() {
-        return itemRepository.findAll()
+    public ItemResponses getItems() {
+        List<ItemResponse> items = itemRepository.findAll()
                 .stream()
                 .map(ItemResponse::fromEntity)
                 .toList();
+
+        return new ItemResponses(items);
     }
 
 

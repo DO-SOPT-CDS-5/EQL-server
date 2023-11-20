@@ -1,6 +1,7 @@
 package dosopt.server.eqlserver.api.item;
 
 import dosopt.server.eqlserver.api.item.dto.response.ItemResponse;
+import dosopt.server.eqlserver.api.item.dto.response.ItemResponses;
 import dosopt.server.eqlserver.common.dto.ApiResponse;
 import dosopt.server.eqlserver.service.item.ItemQueryService;
 import dosopt.server.eqlserver.service.item.ItemService;
@@ -25,7 +26,7 @@ public class ItemController {
 
     @GetMapping("/items")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<List<ItemResponse>> findItems(){
+    public ApiResponse<ItemResponses> findItems(){
         return ApiResponse.success(HttpStatus.OK,"카테고리 상품 조회에 성공했습니다.", itemQueryService.getItems());
     }
 }
