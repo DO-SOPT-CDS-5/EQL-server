@@ -2,6 +2,7 @@ package dosopt.server.eqlserver.service.item;
 
 import dosopt.server.eqlserver.api.item.dto.response.ItemResponse;
 import dosopt.server.eqlserver.domain.Item;
+import dosopt.server.eqlserver.global.exception.IllegalArgumentException;
 import dosopt.server.eqlserver.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
