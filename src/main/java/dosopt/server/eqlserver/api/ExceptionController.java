@@ -32,7 +32,7 @@ public class ExceptionController {
             InvalidFormatException.class,
             ServletRequestBindingException.class
     })
-    protected ApiResponse<Object> handleInvalidFormatException(final Exception exception) {
+    protected ApiResponse<Object> handleInvalidFormatException(Exception exception) {
         log.error(exception.getMessage(), exception);
         return ApiResponse.error(HttpStatus.BAD_REQUEST, "검증되지 않은 요청 값이거나, 요청 값의 Type이 잘못되었습니다.");
     }

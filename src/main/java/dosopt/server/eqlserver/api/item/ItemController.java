@@ -4,7 +4,6 @@ import dosopt.server.eqlserver.api.item.dto.response.ItemResponse;
 import dosopt.server.eqlserver.api.item.dto.response.ItemsResponse;
 import dosopt.server.eqlserver.common.dto.ApiResponse;
 import dosopt.server.eqlserver.service.item.ItemQueryService;
-import dosopt.server.eqlserver.service.item.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class ItemController {
-
-    private final ItemService itemService;
     private final ItemQueryService itemQueryService;
 
     @GetMapping("/item/{itemId}")

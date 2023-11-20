@@ -17,7 +17,7 @@ public class ContentResponse {
     private final String description;
     private final List<String> tags;
 
-    public static ContentResponse fromEntity(Content content) {
+    public static ContentResponse fromEntity(final Content content) {
         return ContentResponse.builder()
                 .contentId(content.getId())
                 .title(content.getTitle())

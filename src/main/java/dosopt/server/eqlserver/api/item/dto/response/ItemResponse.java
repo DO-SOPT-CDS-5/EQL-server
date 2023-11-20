@@ -15,7 +15,7 @@ public class ItemResponse {
     private final String itemName;
     private final int price;
 
-    public static ItemResponse fromEntity(Item item) {
+    public static ItemResponse fromEntity(final Item item) {
         return ItemResponse.builder()
                 .itemId(item.getId())
                 .itemName(item.getName())
