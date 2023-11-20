@@ -12,11 +12,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Table(name = "carts")
 @Entity
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Cart extends BaseEntity {
 
     @Id
@@ -34,4 +38,16 @@ public class Cart extends BaseEntity {
 
     @Column(name = "item_amount", nullable = false)
     private int amount;
+
+    public static Cart newInstance(Member member, Item item) {
+        return Cart.builder()
+                .member(member)
+                .item(item)
+                .amount(1)
+                .build();
+    }
+
+    public void addOneAmount() {
+        this.amount++;
+    }
 }
